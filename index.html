@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Usabilidade - HRIS</title>
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --accent: #3182ce;
+            --danger: #e53e3e;
+            --neu-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+            --neu-inner: inset 6px 6px 10px 0 rgba(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--neu-shadow);
+        }
+
+        h1, h2, h3 { color: var(--text-main); margin-top: 0; }
+        
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .alert {
+            border-left: 5px solid var(--danger);
+        }
+
+        .alert strong { color: var(--danger); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--neu-inner);
+        }
+
+        .info-box h3 { font-size: 1rem; margin-bottom: 10px; color: var(--accent); }
+        .info-box p { margin: 0; font-size: 0.9rem; }
+
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: var(--neu-shadow);
+            transition: all 0.2s ease;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .btn:hover { box-shadow: var(--neu-inner); }
+        .btn-primary { color: #fff; background-color: var(--accent); box-shadow: none; }
+        .btn-primary:hover { opacity: 0.9; }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: var(--text-muted);
+            opacity: 0.1;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Teste de Usabilidade</h1>
+        <p class="subtitle">Avaliação do Sistema de Gestão de Colaboradores</p>
+
+        <!-- Aviso Importante -->
+        <div class="card alert">
+            <h2>⚠️ Avisos sobre o Ambiente de Teste</h2>
+            <ul>
+                <li><strong>Latência:</strong> A aplicação está roteada via túneis gratuitos. O sistema responderá de 10 a 50 vezes mais devagar do que em produção real.</li>
+                <li><strong>Datas Incorretas:</strong> As datas exibidas no sistema devem estar erradas devido ao tunelameno. Por favor, desconsidere.</li>
+                <li><strong>Acesso Inicial:</strong> Existe uma tela de verificação inicial do túnel. Basta clicar em "Avançar" para abrir a aplicação.</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>💡 Dica de Visualização:</strong> Utilize o navegador em <strong>tela cheia</strong> (ou maximize a janela). Como o sistema é responsivo, se a janela estiver pequena, ele ativará o layout de celular, o que não é o foco desta avaliação.
+            </div>
+        </div>
+
+        <!-- Dados Iniciais -->
+        <div class="card">
+            <h2>📍 Instruções Iniciais</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Demonstração</h3>
+                    <p>Assista ao funcionamento antes de testar.</p>
+                    <a href="https://drive.google.com/file/d/1zGNlQsFT97AHpHCZWCRmzK7iqUYd7y6K/view?usp=sharing" class="btn" target="_blank">Ver Vídeo</a>
+                </div>
+                <div class="info-box">
+                    <h3>Teste</h3>
+                    <p><strong>Tempo estimado:</strong> 10 minutos</p>
+                    <a href="https://sift-prancing-maturity.ngrok-free.dev" class="btn" target="_blank">Acessar Sistema</a>
+                </div>
+                <div class="info-box">
+                    <h3>Credenciais</h3>
+                    <p><strong>Email:</strong> ...</p>
+                    <p><strong>Senha:</strong> ...</p>
+                    <p><strong>Tipo de Usuario:</strong> SuperUsuario</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fluxo Principal -->
+        <div class="card">
+            <h2>🎯 Fluxo Principal (Prioridade Alta)</h2>
+            <p>Por favor, siga as etapas abaixo em ordem:</p>
+
+            <h3>A. Adicionar Projeto</h3>
+            <ol>
+                <li>Faça o login na aplicação com email e senha fornecidos.</li>
+                <li>Navegue até a página de <strong>projetos</strong>.</li>
+                <li>Clique no botão de adicionar projetos.</li>
+                <li>Preencha o formulário e salve (como coordenador e locutor, pode escolher qualquer colaborador).</li>
+            </ol>
+
+            <h3>B. Adicionar Colaborador</h3>
+            <ol>
+                <li>Navegue até a página de <strong>colaboradores</strong>.</li>
+                <li>Clique no botão de adicionar colaborador.</li>
+                <li>Preencha o formulário e adicione. <em>(Requer CPF válido. Caso precise, gere um temporário na internet).</em></li>
+            </ol>
+
+            <h3>C. Vincular Colaborador ao Projeto</h3>
+            <ol>
+                <li>Nos detalhes do colaborador criado, vá até a aba <strong>VÍNCULOS</strong>.</li>
+                <li>Clique no botão de edição (lápis) e depois em adicionar.</li>
+                <li>Preencha o formulário vinculando-o ao projeto criado no passo A.</li>
+                <li>Vá até o projeto que você adicionou e verifique na aba <strong>TIME</strong> se o colaborador aparece listado.</li>
+            </ol>
+        </div>
+
+        <!-- Fluxo Secundário -->
+        <div class="card">
+            <h2>Explore Mais (Opcional)</h2>
+            <p>Se não tiver atingido os 10 minutos de teste, tente explorar estas funcionalidades:</p>
+
+            <h3>Colaboradores</h3>
+            <ul>
+                <li>Inativar o colaborador e verificar se ele aparece na lista usando os filtros.</li>
+                <li>Ver histórico de alterações.</li>
+                <li>Reativar e editar um dado.</li>
+                <li>Adicionar, editar e excluir dados nas abas (Geral, Contatos, Acadêmico e Vínculos). *Lembre-se que campos obrigatórios como CPF não podem ser apagados.</li>
+                <li>Deletar o colaborador.</li>
+            </ul>
+
+            <h3>Projetos</h3>
+            <ul>
+                <li>Inativar o projeto e localizá-lo via filtros.</li>
+                <li>Ver histórico de alterações.</li>
+                <li>Reativar, adicionar, editar e excluir dados do projeto.</li>
+                <li>Deletar o projeto.</li>
+            </ul>
+
+            <h3>Usuários</h3>
+            <ul>
+                <li>Clique no seu nome > Configurações.</li>
+                <li>Modifique sua senha ou email.</li>
+                <li>Acesse a aba de usuários e modifique os dados de outro registro.</li>
+            </ul>
+        </div>
+
+        <!-- Conclusão e Feedback -->
+        <div class="card" style="text-align: center;">
+            <h2>📝 Avaliação Final</h2>
+            <p>Sua avaliação é crucial para a conclusão do meu TCC. Sou muito grato pelo seu tempo e pelas respostas.</p>
+            <p><em>Lembrete: Ao responder, por favor desconsidere a lentidão nas respostas do sistema, pois é uma limitação exclusiva do roteamento atual e não reflete a arquitetura real.</em></p>
+            <br>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckMGGMi2V0reqqrsMkSdPT93JOeZ_v5uZJAqTugbqRYLCRug/viewform?usp=dialog" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 30px;">Responder Formulário de Avaliação</a>
+        </div>
+    </div>
+
+</body>
+</html>
